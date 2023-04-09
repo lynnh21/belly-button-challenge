@@ -59,5 +59,36 @@ const optionChanged = () => {
     };
 
     Plotly.newPlot("bubble", data, layout);
+
+    //Adding a gauge chart
+    var data = [
+      {
+        domain: { x: [0, 1], y: [0, 1] },
+        value: meta.wfreq,
+        title: { text: "Belly Button Washing Frequency <br> Scrubs per Week" },
+        type: "indicator",
+        mode: "gauge+number",
+        gauge: {
+          axis: {
+            range: [null, 9],
+            tickwidth: 1,
+            tickcolor: "darkblue",
+          },
+          steps: [
+            { range: [0, 1], color: "#F8F3EC" },
+            { range: [1, 2], color: "#F4F1E4" },
+            { range: [2, 3], color: "#E9E6C9" },
+            { range: [3, 4], color: "#E2E4B1" },
+            { range: [4, 5], color: "#D5E49D" },
+            { range: [5, 6], color: "#B7CC92" },
+            { range: [6, 7], color: "#8CBF88" },
+            { range: [7, 8], color: "#8ABB8F" },
+            { range: [8, 9], color: "#85B48A" },
+          ],
+        },
+      },
+    ];
+
+    Plotly.newPlot("gauge", data);
   });
 };
